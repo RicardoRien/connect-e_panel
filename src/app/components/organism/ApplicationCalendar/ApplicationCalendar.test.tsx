@@ -1,10 +1,14 @@
 import { ApplicationCalendar } from "@/app/components/organism/ApplicationCalendar";
 import { dates, profileData } from "@/app/data";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { render, screen } from "@testing-library/react";
 
 test("Renders the component correctly", () => {
   render(
-    <ApplicationCalendar accordionData={dates} profileData={profileData} />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ApplicationCalendar accordionData={dates} profileData={profileData} />
+    </LocalizationProvider>
   );
 
   expect(screen.getByText("Isaac Newton")).toBeInTheDocument();

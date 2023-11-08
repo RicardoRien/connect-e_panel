@@ -11,11 +11,19 @@ yarn lint ||
     false;
 )
 
-# Check Prettier standards
+# Prettier apply
 yarn format ||
 (
-    echo '🐍🐍🐍🐍 Your styling looks bad! 🐍🐍🐍🐍
-            Prettier Check Failed. Run yarn format, add changes and try commit again.';
+    echo '🐍🐍🐍🐍 You need to change some styles ! 🐍🐍🐍🐍
+            Prettier Failed. Run yarn format, add changes and try commit again.';
+    false;
+)
+
+# Check Prettier standards
+yarn check-format ||
+(
+    echo '🐉🐉🐉🐉 Your styling looks bad! 🐉🐉🐉🐉
+            Prettier-Check Failed. Run yarn format, add changes and try commit again.';
     false;
 )
 
@@ -35,12 +43,11 @@ yarn check-types ||
     false;
 )
 
-# Check tests pass
-# yarn test:ci ||
-# (
-#     echo '🔬🧬🔬🧬 Tests failed. Please fix the tests and try again. 🔬🧬🔬🧬'
-#     false;
-# )
+yarn test ||
+(
+    echo '🔬🧬🔬🧬 Tests failed. Please fix the tests and try again. 🔬🧬🔬🧬'
+    false;
+)
 
 # If everything passes... Now we can commit
 echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
@@ -55,4 +62,3 @@ yarn build ||
 
 # If everything passes... Now we can commit
 echo '🚀🚀🚀🚀 You win this time... I am committing this now. 🚀🚀🚀🚀'
-
