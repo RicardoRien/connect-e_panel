@@ -8,7 +8,7 @@ module.exports = {
     "standard-with-typescript",
     "prettier",
     "plugin:@next/next/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
   ],
   overrides: [],
   parserOptions: {
@@ -23,7 +23,7 @@ module.exports = {
     "react/display-name": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    '@typescript-eslint/no-non-null-assertion': 'off',
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -38,29 +38,36 @@ module.exports = {
         objectLiteralTypeAssertions: "allow-as-parameter",
       },
     ],
-    '@typescript-eslint/no-confusing-void-expression': [
-      'error',
-      { ignoreArrowShorthand: true }
+    "@typescript-eslint/no-confusing-void-expression": [
+      "error",
+      { ignoreArrowShorthand: true },
     ],
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [
-          ["^react$", "^react-redux$", "^@reduxjs/toolkit$", "^next", "^[a-z]", "^use client"],
+        groups: [
+          [
+            "^react$",
+            "^react-redux$",
+            "^@reduxjs/toolkit$",
+            "^next",
+            "^[a-z]",
+            "^use client",
+          ],
           ["^@atoms", "^@molecules", "^@organisms", "^@icons"],
           ["^@"],
           ["^~"],
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
           ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
           ["^\\u0000"],
-          ["^.+\\.s?css$"]
-        ]
-      }
+          ["^.+\\.s?css$"],
+        ],
+      },
     ],
   },
   settings: {
     react: {
-     version: "detect",
+      version: "detect",
     },
   },
 };

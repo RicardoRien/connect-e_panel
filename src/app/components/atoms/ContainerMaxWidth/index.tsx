@@ -8,8 +8,8 @@ interface Props {
 
 export function ContainerMaxWidth({ children }: Props) {
   return (
-    <Box maxWidth={1400} margin='0 auto'>
+    <Box maxWidth={1400} margin="0 auto">
       {children}
     </Box>
-  )
+  );
 }

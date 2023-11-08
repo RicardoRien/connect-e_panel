@@ -1,7 +1,7 @@
-import MUIAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
+import MUIAccordionSummary, {
+  AccordionSummaryProps,
+} from "@mui/material/AccordionSummary";
 
 export function AccordionSummary(props: AccordionSummaryProps) {
-  return (
-    <MUIAccordionSummary {...props}></MUIAccordionSummary>
-  )
+  return <MUIAccordionSummary {...props}></MUIAccordionSummary>;
 }

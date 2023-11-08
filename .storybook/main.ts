@@ -1,5 +1,5 @@
-import path from 'path';
-import { Configuration } from 'webpack';
+import path from "path";
+import { Configuration } from "webpack";
 import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
@@ -18,7 +18,7 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       // Speeds up Storybook build time
       compilerOptions: {
@@ -31,17 +31,19 @@ const config: StorybookConfig = {
       shouldRemoveUndefinedFromOptional: true,
       // Filter out third-party props from node_modules except @mui packages
       propFilter: (prop) =>
-        prop.parent ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName) : true,
+        prop.parent
+          ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName)
+          : true,
     },
   },
   webpackFinal(config: Configuration): Configuration | Promise<Configuration> {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@': path.resolve(__dirname, '../src/'),
+        "@": path.resolve(__dirname, "../src/"),
       };
     }
     return config;
-  }
+  },
 };
 export default config;

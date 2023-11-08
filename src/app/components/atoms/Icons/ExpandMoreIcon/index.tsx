@@ -1,5 +1,5 @@
-import MUIExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MUIExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export function ExpandMoreIcon(props: any) {
-  return <MUIExpandMoreIcon {...props} />
+  return <MUIExpandMoreIcon {...props} />;
 }

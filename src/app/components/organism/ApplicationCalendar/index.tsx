@@ -1,46 +1,45 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from "dayjs";
 
 import { getDayInDate } from "@/utils/helpers/helpers/getDayInDate";
 import { getLastWordsInDate } from "@/utils/helpers/helpers/getLastWordsInDate";
 import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { CalendarPicker } from "@mui/x-date-pickers";
 
-import { DatesInterface, profileData,ProfileDataInterface } from "../../../data/index";
+import {
+  DatesInterface,
+  profileData,
+  ProfileDataInterface,
+} from "../../../data/index";
 import { ContainerMaxWidth } from "../../atoms/ContainerMaxWidth";
 import { AccordionLesson } from "../../molecules/AccordionLesson";
 import { CardProfile } from "../../molecules/CardProfile";
 import { GoBackLeftArrow } from "../../molecules/GoBackLeftArrow";
 
-import 'dayjs/locale/en';
+import "dayjs/locale/en";
 
 interface Props {
-  accordionData: DatesInterface[],
-  profileData: ProfileDataInterface
+  accordionData: DatesInterface[];
+  profileData: ProfileDataInterface;
 }
 
 export function ApplicationCalendar(props: Props) {
   const [value, setValue] = useState<Dayjs | null>(dayjs(Date.now()));
-  const [actualtDate, setActualtDate] = useState<string | undefined>('');
-  const isDesktop = useMediaQuery('(min-width:730px)');
+  const [actualtDate, setActualtDate] = useState<string | undefined>("");
+  const isDesktop = useMediaQuery("(min-width:730px)");
 
   useEffect(() => {
-    setActualtDate(value?.toString())
-  }, [value])
+    setActualtDate(value?.toString());
+  }, [value]);
 
   return (
-    <Box sx={{ marginTop: '35px', marginX: { xs: '10px', xl:  '40px' } }}>
+    <Box sx={{ marginTop: "35px", marginX: { xs: "10px", xl: "40px" } }}>
       <ContainerMaxWidth>
         <Box>
-          <GoBackLeftArrow
-            link="/"
-            text="Teacher"
-          />
+          <GoBackLeftArrow link="/" text="Teacher" />
         </Box>
-        <Stack spacing={2} direction={isDesktop ? 'row' : 'column'} >
+        <Stack spacing={2} direction={isDesktop ? "row" : "column"}>
           <Box maxWidth={400} marginTop={4}>
             <CardProfile
               name={profileData.name}
@@ -57,20 +56,25 @@ export function ApplicationCalendar(props: Props) {
               />
             ))}
           </Box>
-          <Stack spacing={4} direction={isDesktop ? 'row' : 'column'}
-            sx={{ border: '1px solid #98A1B2', borderRadius: '10px', padding: '30px', height: '700px' }}
+          <Stack
+            spacing={4}
+            direction={isDesktop ? "row" : "column"}
+            sx={{
+              border: "1px solid #98A1B2",
+              borderRadius: "10px",
+              padding: "30px",
+              height: "700px",
+            }}
           >
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar sx={{ margin: '0px' }}
-                value={value}
-                onChange={(newValue) => setValue(newValue)}
-              />
-            </LocalizationProvider>
+            <CalendarPicker
+              date={value}
+              onChange={(newValue) => setValue(newValue)}
+            />
             <Box>
-              <Typography color={'#CFD3DC'} fontWeight={600} display={'inline'}>
-                {actualtDate && getDayInDate(actualtDate)}, {' '}
+              <Typography color={"#CFD3DC"} fontWeight={600} display={"inline"}>
+                {actualtDate && getDayInDate(actualtDate)},{" "}
               </Typography>
-              <Typography color={'#CFD3DC'} display={'inline'}>
+              <Typography color={"#CFD3DC"} display={"inline"}>
                 {actualtDate && getLastWordsInDate(actualtDate, -2)}
               </Typography>
             </Box>
@@ -78,5 +82,5 @@ export function ApplicationCalendar(props: Props) {
         </Stack>
       </ContainerMaxWidth>
     </Box>
-  )
+  );
 }

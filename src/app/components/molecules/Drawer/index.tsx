@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 interface Props {
-  pages: string[]
+  pages: string[];
 }
 
 const DrawerComp = ({ pages }: Props) => {
@@ -40,7 +40,7 @@ const DrawerComp = ({ pages }: Props) => {
         sx={{ color: "#343f52", marginLeft: "auto" }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
-        <MenuIcon style={{ color: '#343f52' }} />
+        <MenuIcon style={{ color: "#343f52" }} />
       </IconButton>
     </>
   );

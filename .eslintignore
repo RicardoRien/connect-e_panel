@@ -9,4 +9,7 @@ lib/apollo.ts
 sentry.client.config.js
 sentry.server.config.js
 /tests
-
+.eslintrc.js
+next.config.js
+jest.config.js
+jest.setup.js
