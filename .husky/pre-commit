@@ -3,6 +3,14 @@
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 
+# Applying Lint --fix (automate fix stuff)
+yarn lint:fix ||
+(
+    echo '🟡🟡🟡🟡 You have to fix some lint stuff 🟡🟡🟡🟡
+            Make the required changes listed above, add changes and try to commit again.';
+    false;
+)
+
 # Applying Lint
 yarn lint ||
 (

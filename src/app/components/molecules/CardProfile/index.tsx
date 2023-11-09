@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import defaultImgUser from "public/default_img.png";
 
 import { Grid, Typography } from "@mui/material";
 
@@ -13,7 +14,7 @@ export function CardProfile({ name, location, avatarTeacher }: Props) {
     <Grid container spacing={1} width={430}>
       <Grid item xs={4} md={2}>
         <Image
-          src={avatarTeacher}
+          src={avatarTeacher || defaultImgUser}
           width={60}
           height={60}
           style={{ borderRadius: "50%", position: "relative", top: "4px" }}
